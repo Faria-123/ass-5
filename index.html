@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./tailwind.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="min-h-screen max-w-md bg-white mx-auto shrink-0 shadow-2xl">
+
+    <div class="logo w-[100px] mx-auto pt-32">
+        <img src="./assets/github-logo.png" alt="">
+    </div>
+    <div class="text-center mt-4">
+        <h1 class="font-bold text-[1.4rem]">GitHub Issues Tracker</h1>
+        <p class="opacity-60">Sign in to manage your issues</p>
+    </div>
+    <div class="form pt-10">
+        <div class="card bg-base-100 w-full max-w-sm mx-auto">
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <label class="label font-semibold text-black">Username</label>
+                    <input id="user-btn" type="text" class="input" placeholder="Enter Username" />
+                    <p class="font-semibold text-[#4A00FF]">Default: admin</p>
+                    <label class="label font-semibold text-black">Password</label>
+                    <input id="pass-btn" type="password" class="input" placeholder="Enter Password" />
+                    <p class="font-semibold text-[#4A00FF]">Default: admin123</p>
+                    <button id="log-btn" class="btn btn-neutral mt-4 bg-[#4A00FF]">Sign In</button>
+                </fieldset>
+            </div>
+
+        </div>
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div class="demo-box">
+            <p>Demo Credentials:</p>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> admin123</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

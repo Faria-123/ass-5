@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header class="containter max-w-[90%] bg-pink-200 mx-auto mt-2">
+        <div class="logo flex justify-between">
+            <div class="flex justify-center items-center">
+                <div class="w-[2.3rem] h-[2.3rem]"><img src="./assets/github-logo.png" alt=""></div>
+                <h1 class="font-bold text-[1.4rem]">GitHub Issues Tracker</h1>
+            </div>
+            <div class="flex justify-center items-center">
+                <input id="search" type="text" class="border-zinc-300 p-[5px] " placeholder="Search Issues...">
+                <button id="search-btn" class="btn blue-btn"><i class="fa-solid fa-magnifying-glass"></i>New
+                    Issue</button>
+            </div>
+        </div>
+    </header>
+    <main class="containter max-w-[80%]  mx-auto mt-[60px]">
+        <div class=" mx-auto space-y-7">
+            <div id="btn-container" class="space-x-1 bg-white shadow-2xl rounded-[7px]">
+                <button id="all-btn" class="blue-btn w-[120px]">All</button>
+                <button id="open-btn" class="pri-btn ">Open</button>
+                <button id="closed-btn" class="pri-btn ">Closed</button>
+            </div>
+            <div class="flex justify-between items-center p-5 bg-white shadow-2xl rounded-[7px]">
+                <div class="flex  items-center">
+                    <div class="flex items-center"><img src="./assets/Aperture.png" alt="">
+                        <div>
+                            <h1 class="font-bold"><span id="total">10</span> Issues</h1>
+                            <p class="opacity-55">Track and manage your project issues</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-1.5">
+                    <div class="flex">
+                        <div class="w-[20px] h-[20px] rounded-full bg-green-600"></div>
+                        <p>Open</p>
+                    </div>
+                    <div class="flex">
+                        <div class="w-[20px] h-[20px] rounded-full bg-[#A855F7]"></div>
+                        <p>Closed</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-container grid grid-cols-4 gap-[5px] bg-white shadow-2xl rounded-[7px]">
+                <div class="card w-[250px] bg-base-100 shadow-md border border-gray-200">
+
+                    <div class="card-body gap-3">
+                        <!-- Top section -->
+                        <div class="flex justify-between items-center">
+                            <!-- status icon -->
+                            <div class="w-10 h-10 ">
+                                <img src="./assets/Open-Status.png" alt="">
+                            </div>
+                            <!-- priority -->
+                            <div class="badge badge-error badge-lg bg-red-100 text-red-500 border-none px-6">
+                                HIGH
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-semibold leading-6">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="text-gray-500 text-sm line-clamp-2">
+                            The navigation menu doesn't collapse properly Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Qui, dolorem.on mobile devices...
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex gap-2 mt-2">
+                            <div class="badge badge-outline text-red-500 border-red-300">
+                                BUG
+                            </div>
+
+                            <div class="badge badge-outline text-orange-500 border-orange-300">
+                                HELP WANTED
+                            </div>
+                        </div>
+
+                        <div class="divider my-1"></div>
+
+                        <!-- Footer -->
+                        <div class="text-sm text-gray-500">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card w-[250px] bg-base-100 shadow-md border border-gray-200">
+
+                    <div class="card-body gap-3">
+                        <!-- Top section -->
+                        <div class="flex justify-between items-center">
+                            <!-- status icon -->
+                            <div class="w-10 h-10 ">
+                                <img src="./assets/Open-Status.png" alt="">
+                            </div>
+                            <!-- priority -->
+                            <div class="badge badge-error badge-lg bg-red-100 text-red-500 border-none px-6">
+                                HIGH
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-semibold leading-6">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="text-gray-500 text-sm line-clamp-2">
+                            The navigation menu doesn't collapse properly Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Qui, dolorem.on mobile devices...
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex gap-2 mt-2">
+                            <div class="badge badge-outline text-red-500 border-red-300">
+                                BUG
+                            </div>
+
+                            <div class="badge badge-outline text-orange-500 border-orange-300">
+                                HELP WANTED
+                            </div>
+                        </div>
+
+                        <div class="divider my-1"></div>
+
+                        <!-- Footer -->
+                        <div class="text-sm text-gray-500">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card w-[250px] bg-base-100 shadow-md border border-gray-200">
+
+                    <div class="card-body gap-3">
+                        <!-- Top section -->
+                        <div class="flex justify-between items-center">
+                            <!-- status icon -->
+                            <div class="w-10 h-10 ">
+                                <img src="./assets/Open-Status.png" alt="">
+                            </div>
+                            <!-- priority -->
+                            <div class="badge badge-error badge-lg bg-red-100 text-red-500 border-none px-6">
+                                HIGH
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-semibold leading-6">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="text-gray-500 text-sm line-clamp-2">
+                            The navigation menu doesn't collapse properly Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Qui, dolorem.on mobile devices...
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex gap-2 mt-2">
+                            <div class="badge badge-outline text-red-500 border-red-300">
+                                BUG
+                            </div>
+
+                            <div class="badge badge-outline text-orange-500 border-orange-300">
+                                HELP WANTED
+                            </div>
+                        </div>
+
+                        <div class="divider my-1"></div>
+
+                        <!-- Footer -->
+                        <div class="text-sm text-gray-500">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card w-[250px] bg-base-100 shadow-md border border-gray-200">
+
+                    <div class="card-body gap-3">
+                        <!-- Top section -->
+                        <div class="flex justify-between items-center">
+                            <!-- status icon -->
+                            <div class="w-10 h-10 ">
+                                <img src="./assets/Open-Status.png" alt="">
+                            </div>
+                            <!-- priority -->
+                            <div class="badge badge-error badge-lg bg-red-100 text-red-500 border-none px-6">
+                                HIGH
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-semibold leading-6">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="text-gray-500 text-sm line-clamp-2">
+                            The navigation menu doesn't collapse properly Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Qui, dolorem.on mobile devices...
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex gap-2 mt-2">
+                            <div class="badge badge-outline text-red-500 border-red-300">
+                                BUG
+                            </div>
+
+                            <div class="badge badge-outline text-orange-500 border-orange-300">
+                                HELP WANTED
+                            </div>
+                        </div>
+
+                        <div class="divider my-1"></div>
+
+                        <!-- Footer -->
+                        <div class="text-sm text-gray-500">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card w-[250px] bg-base-100 shadow-md border border-gray-200">
+
+                    <div class="card-body gap-3">
+                        <!-- Top section -->
+                        <div class="flex justify-between items-center">
+                            <!-- status icon -->
+                            <div class="w-10 h-10 ">
+                                <img src="./assets/Open-Status.png" alt="">
+                            </div>
+                            <!-- priority -->
+                            <div class="badge badge-error badge-lg bg-red-100 text-red-500 border-none px-6">
+                                HIGH
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-semibold leading-6">
+                            Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="text-gray-500 text-sm line-clamp-2">
+                            The navigation menu doesn't collapse properly Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Qui, dolorem.on mobile devices...
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex gap-2 mt-2">
+                            <div class="badge badge-outline text-red-500 border-red-300">
+                                BUG
+                            </div>
+
+                            <div class="badge badge-outline text-orange-500 border-orange-300">
+                                HELP WANTED
+                            </div>
+                        </div>
+
+                        <div class="divider my-1"></div>
+
+                        <!-- Footer -->
+                        <div class="text-sm text-gray-500">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

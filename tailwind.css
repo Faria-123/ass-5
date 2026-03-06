@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+* {
+    font-family: "Geist", sans-serif;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #777;
+    font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.demo-box {
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.blue-btn {
+    background-color: #4A00FF;
+    color: white;
+    font-weight: bold;
+    padding: 11px 16px 11px 16px;
+    border-radius: 8px;
+}
+
+.pri-btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 11px 16px 11px 16px;
+    border-radius: 8px;
+    width: 120px;
+    border: 1px solid gainsboro;
+}

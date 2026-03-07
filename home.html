@@ -19,15 +19,20 @@
 </head>
 
 <body>
-    <header class="containter max-w-[90%] bg-pink-200 mx-auto mt-2">
+    <header class="containter max-w-[90%]  mx-auto mt-2">
         <div class="logo flex justify-between">
             <div class="flex justify-center items-center">
                 <div class="w-[2.3rem] h-[2.3rem]"><img src="./assets/github-logo.png" alt=""></div>
                 <h1 class="font-bold text-[1.4rem]">GitHub Issues Tracker</h1>
             </div>
             <div class="flex justify-center items-center">
-                <input id="search" type="text" class="border-zinc-300 p-[5px] " placeholder="Search Issues...">
-                <button id="search-btn" class="btn blue-btn"><i class="fa-solid fa-magnifying-glass"></i>New
+                <div class="flex items-center border border-gray-300 rounded px-3 py-1">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                    <input id="search" type="text" placeholder="Search Issues..."
+                        class="ml-2 outline-none bg-transparent border-none" />
+                </div>
+                <button id="search-btn" class="btn blue-btn text-[0.65rem]"><i
+                        class="fa-solid fa-magnifying-glass"></i>New
                     Issue</button>
             </div>
         </div>
@@ -68,7 +73,75 @@
                 <span class="loading loading-dots loading-xl"></span>
             </div>
         </div>
+
+
+
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+        <dialog id="card-modal" class="modal">
+            <div class="modal-box max-w-[640px] rounded-2xl p-6">
+
+                <h2 id="id-title" class="text-[20px] font-bold text-[#1F2937] mb-3">
+                    Fix broken image uploads
+                </h2>
+
+                <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-4">
+                    <span id="status-badge"
+                        class="badge border-none bg-green-600 text-white px-3 py-3 text-[12px] font-semibold rounded-full">
+                        Opened
+                    </span>
+                    <span>•</span>
+                    <span>Opened by <span id="id-author">Fahim Ahmed</span></span>
+                    <span>•</span>
+                    <span id="id-cre">22/02/2026</span>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <div id="label0"
+                        class="badge badge-outline text-red-500 border-red-300 text-[12px] px-3 py-3 rounded-full">
+                        BUG
+                    </div>
+
+                    <div id="label1"
+                        class="badge badge-outline text-orange-500 border-orange-300 text-[12px] px-3 py-3 rounded-full">
+                        HELP WANTED
+                    </div>
+                </div>
+
+                <p id="id-des" class="text-[16px] leading-7 text-gray-600 mb-6">
+                    The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive
+                    behavior.
+                </p>
+
+                <div class="bg-gray-100 rounded-xl p-4 flex justify-between items-start mb-5">
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Assignee:</p>
+                        <p id="id-ass" class="font-bold text-gray-800">Fahim Ahmed</p>
+                    </div>
+
+                    <div class="min-w-[120px]">
+                        <p class="text-gray-500 text-sm mb-1">Priority:</p>
+                        <div id="id-priority"
+                            class="badge border-none bg-red-500 text-white px-4 py-3 rounded-full font-semibold">
+                            HIGH
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-action mt-0">
+                    <form method="dialog" class="w-full flex justify-end">
+                        <button
+                            class="btn bg-[#4F46E5] hover:bg-[#4338CA] text-white border-none px-6 min-h-[44px] h-[44px] rounded-md">
+                            Close
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
     </main>
+
+
     <script src="./script.js"></script>
 </body>
 

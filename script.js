@@ -36,6 +36,24 @@ const closedBtn = document.getElementById('closed-btn');
 const cardContainer = document.getElementById('card-container');
 const loadingSpinner = document.getElementById('loadingSpinner');
 const Total = document.getElementById('total');
+const mymodal = document.getElementById('card-modal');
+// modalff
+const idPri = document.getElementById('id-priority');
+const idTi = document.getElementById('id-title');
+const idDes = document.getElementById('id-des');
+const idLab0 = document.getElementById('label0');
+const idLab1 = document.getElementById('label1');
+const idAut = document.getElementById('id-author');
+const idAss = document.getElementById('id-ass');
+const idCre = document.getElementById('id-cre');
+const idUpd = document.getElementById('id-upd');
+const ima = document.getElementById('image');
+const statusBadge = document.getElementById('status-badge');
+const searchIn = document.getElementById('search');
+const searchBtn = document.getElementById("search-btn");
+let openArr = [];
+let closedArr = [];
+let ser = [];
 function showLoading() {
     loadingSpinner.classList.remove("hidden");
     cardContainer.innerHTML = "";
@@ -75,8 +93,10 @@ openBtn.addEventListener("click", () => {
 
     openBtn.classList.add("blue-btn");
     openBtn.classList.remove("pri-btn");
-
-    //   loadTrees();
+    Total.innerText = openArr.length;
+    showLoading();
+    card(openArr);
+    hideLoading();
 });
 closedBtn.addEventListener("click", () => {
     // Update active button style
@@ -91,17 +111,51 @@ closedBtn.addEventListener("click", () => {
 
     closedBtn.classList.add("blue-btn");
     closedBtn.classList.remove("pri-btn");
-
-    //   loadTrees();
+    Total.innerText = closedArr.length;
+    showLoading();
+    card(closedArr);
+    hideLoading();
 });
 async function loadIssue() {
+    openArr = [];
+    closedArr = [];
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const dat = await res.json();
-    Total.innerText = dat.data.length;
+    searchBtn.addEventListener('click', function () {
+        const value = searchIn.value.toLowerCase();
+        ser = [];
+
+        dat.data.forEach(it => {
+            if (it.title.toLowerCase().includes(value)) {
+                ser.push(it);
+            }
+        });
+
+        Total.innerText = ser.length;
+        searchCard(ser);
+    });
+
+
     dat.data.forEach(item => {
+        if (item.status === "open") {
+            openArr.push(item);
+        }
+        else if (item.status === "closed") {
+            closedArr.push(item);
+        }
+    });
+    console.log(closedArr);
+    Total.innerText = dat.data.length;
+    card(dat.data);
+
+}
+function card(card) {
+    cardContainer.innerHTML = "";
+    card.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'card  bg-base-100 shadow-md border border-gray-200'
+        div.className = 'card  bg-base-100 shadow-md  border border-gray-200'
         item.status === "open" ? div.classList.add("border-top-open") : div.classList.add("border-top-close");
+
         div.innerHTML = `
      <div class="card-body gap-3" id="${item.id}">
                         <!-- Top section -->
@@ -124,9 +178,11 @@ async function loadIssue() {
                         </h2>
 
                         <!--Description -->
-                        <p class="text-gray-500 text-sm line-clamp-2">
+                        
+                          <p class="text-gray-500 text-sm clamp-2">
                             ${item.description}
                         </p>
+
 
                         <!--Tags -->
                         <div class="flex gap-2 mt-2">
@@ -134,9 +190,13 @@ async function loadIssue() {
                                 ${item.labels[0]}
                             </div>
 
-                            <div class="badge badge-outline text-orange-500 border-orange-300 text-[12px] p-1">
-                                ${item.labels[1]}
-                            </div>
+                           
+                            ${item.labels?.[1] ? `
+                           <div class="badge badge-outline text-orange-500 border-orange-300 text-[12px] p-1">
+                               ${item.labels[1]}
+                           </div>
+                           ` : ""}
+
                         </div>
 
                         <div class="divider my-1"></div>
@@ -161,11 +221,58 @@ async function loadIssue() {
 
         `
 
+        div.addEventListener("click", () => {
+            modal(item.id);
+        });
 
         cardContainer.appendChild(div);
 
 
     })
 
+}
 
+
+async function modal(cardId) {
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${cardId}`);
+    const dat = await res.json();
+    const arr = dat.data;
+
+    idTi.innerText = arr.title;
+    idDes.innerText = arr.description;
+    idAut.innerText = arr.author;
+    idAss.innerText = arr.assignee;
+    idCre.innerText = arr.createdAt;
+
+    idPri.innerText = arr.priority.toUpperCase();
+
+    if (arr.priority.toLowerCase() === "high") {
+        idPri.className = "badge border-none bg-red-500 text-white px-4 py-3 rounded-full font-semibold";
+    } else if (arr.priority.toLowerCase() === "medium") {
+        idPri.className = "badge border-none bg-yellow-500 text-white px-4 py-3 rounded-full font-semibold";
+    } else {
+        idPri.className = "badge border-none bg-gray-500 text-white px-4 py-3 rounded-full font-semibold";
+    }
+
+    statusBadge.innerText = arr.status === "open" ? "Opened" : "Closed";
+    statusBadge.className = arr.status === "open"
+        ? "badge border-none bg-green-600 text-white px-3 py-3 text-[12px] font-semibold rounded-full"
+        : "badge border-none bg-violet-600 text-white px-3 py-3 text-[12px] font-semibold rounded-full";
+
+    idLab0.innerText = arr.labels?.[0] || "";
+    if (arr.labels?.[1]) {
+        idLab1.innerText = arr.labels[1];
+        idLab1.classList.remove("hidden");
+    } else {
+        idLab1.innerText = "";
+        idLab1.classList.add("hidden");
+    }
+
+    mymodal.showModal();
+}
+
+function searchCard(seId) {
+    showLoading();
+    card(seId);
+    hideLoading();
 }

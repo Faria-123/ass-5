@@ -38,6 +38,7 @@
     font-weight: bold;
     padding: 11px 16px 11px 16px;
     border-radius: 8px;
+    width: 120px;
 }
 
 .pri-btn {
@@ -48,4 +49,12 @@
     border-radius: 8px;
     width: 120px;
     border: 1px solid gainsboro;
+}
+
+.border-top-open {
+    border-top: 3px solid #00A96E;
+}
+
+.border-top-close {
+    border-top: 3px solid #A855F7;
 }

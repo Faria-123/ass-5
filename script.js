@@ -144,7 +144,7 @@ function card(card) {
 
         div.innerHTML = `
      <div class="card-body gap-3" id="${item.id}">
-                        <!-- Top section -->
+                        <!-- Top-->
                         <div class="flex justify-between items-center">
                             <!-- status icon -->
                             <div class="w-10 h-10 ">

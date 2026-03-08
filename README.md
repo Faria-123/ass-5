@@ -42,7 +42,6 @@ ex:const a=`hello my nam ${name}`;
 b.Multi-line Strings:
 Template literals allow you to write multi-line strings without using \n.using 
 const x=`hi
-        djf
-         `;
+        djf `;
 c.Dynamic Strings:
 we can also place JavaScript expressions inside ${}.
